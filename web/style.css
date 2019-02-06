@@ -1,0 +1,12 @@
+div {
+    padding: 3px; /* Поля вокруг содержимого таблицы */
+    border: 1px solid black; /* Параметры рамки */
+}
+TD,
+TH {
+    padding: 3px;/* Поля вокруг содержимого таблицы */
+    border: 1px solid black;/* Параметры рамки */
+}
+.txtClass{
+	width: 800px;
+}
