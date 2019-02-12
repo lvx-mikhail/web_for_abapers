@@ -13,6 +13,8 @@ AppVariant_index.html
 APIExternalProducer.js
 .*/APIExternalProducer.js
 
+*.che
+
 # Compiled class file
 *.class
 
