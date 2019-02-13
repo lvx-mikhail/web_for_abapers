@@ -1,0 +1,24 @@
+.red {
+	background-color: red;
+	position: relative;
+	left: 30px;
+	width: 20vw;
+    height: 20vw;
+}
+.green {
+	background-color: green;
+	position: absolute;
+	z-index: 1;
+	top: 10vw;
+	left: 10vw;
+	width: 20vw;
+    height: 20vw;
+}
+.blue {
+	background-color: blue;
+	position: absolute;
+	top: 20vw;
+	left: 20vw;
+	width: 20vw;
+    height: 20vw ;
+}

@@ -1,0 +1,27 @@
+toRemove {
+    box-sizing: border-box;
+    border: 1px solid green;
+}
+body {
+    margin: 0;
+}
+table {
+    width: 100%;
+    margin: 1vw 0 1vw 0;
+}
+.orange tr {
+	background-color: orange;
+    height: 10vh;
+}
+.yellow tr {
+	background-color: yellow;
+    height: 35vh;
+}
+.blue tr {
+	background-color: blue;
+    height: 20vh;
+}
+.grey tr {
+	background-color: grey;
+    height: 15vh;
+}

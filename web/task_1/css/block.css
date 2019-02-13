@@ -1,0 +1,36 @@
+toRemove {
+    box-sizing: border-box;
+    border: 1px solid green;
+}
+body {
+    margin: 0;
+}
+.table {
+	width: 100%;
+	margin: 1vw 0 1vw 0;
+	white-space: nowrap;
+}
+.table div {
+	display: inline-block;
+	box-sizing: border-box;
+}
+.orange div {
+	background-color: orange;
+    height: 15vh;
+    width: calc(100% / 2 - 4px);
+}
+.yellow div {
+	background-color: yellow;
+    height: 35vh;
+    width: calc(100% - 4px);
+}
+.blue div {
+	background-color: blue;
+    height: 20vh;
+    width: calc(100% / 3 - 4px);
+}
+.grey div {
+	background-color: grey;
+    height: 15vh;
+    width: calc(100% / 4 - 4px);
+}
