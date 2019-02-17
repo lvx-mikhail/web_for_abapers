@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+  width: 100%;
+}
+body {
+	margin: 0;
+	height: 100%;
+}
+.root {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-self: center;
+}
+
+.root > div {
+	margin: 3px;
+}
+
+@media only screen 
+			and (device-width: 1920px) 
+			and (device-height: 1080px) {
+	.root > div {
+		flex: 19%;
+		height: 50%;
+	}
+}
+@media only screen 
+        and (device-width : 1280px) 
+        and (device-height : 1024px) {
+	.root > div {
+		flex: 24%;
+		height: 25%;
+	}	
+	.root > div:nth-last-of-type(-n+2) {
+		flex: 48%;
+		width: 48%;
+	}	
+}
