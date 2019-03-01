@@ -69,14 +69,20 @@ function Spruce(name, description){
     
 }
 
-function main(){
-	var plunt = new Plunt("MyPlant").setDescription("PlantDescr"); 
-	var fern = new Fern("MyFern").setDescription("FernDescr").setApplication("MyApplication");
-	var spruce = new Spruce("MySpruce", "SpruceDescr").setClass("MyClass");
+function create(){
+	var name = document.getElementById("name").value
 	
-	console.log(plunt.toString() + ", json: " + JSON.stringify(plunt));
-	console.log(fern.toString() + ", json: " + JSON.stringify(fern));
-	console.log(spruce.toString() + ", json: " + JSON.stringify(spruce));
+	plunt = new Plunt(`MyPlant: ${name}`)
+		.setDescription("PlantDescr"); 
+		
+	fern = new Fern(`MyFern: ${name}`)
+		.setDescription("FernDescr")
+		.setApplication("MyApplication");
+		
+	spruce = new Spruce(`MySpruce: ${name}`, "SpruceDescr")
+		.setClass("MyClass");
+	
+	[plunt,fern,spruce].forEach(element => 
+		console.log(element.toString() + ", json: " + JSON.stringify(element)));
+	
 }
-
-setTimeout(main, 5000);
