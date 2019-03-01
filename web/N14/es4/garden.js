@@ -79,4 +79,4 @@ function main(){
 	console.log(spruce.toString() + ", json: " + JSON.stringify(spruce));
 }
 
-main();
+setTimeout(main, 5000);
