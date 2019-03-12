@@ -18,7 +18,7 @@ function Plunt(name){
     }
     
 	this.toString = function(){
-		return "Plant (super): " + 
+		return "Plant (super - func): " + 
 		"name: " + _name;
 	}
 }
@@ -38,7 +38,7 @@ function Fern(name){
     }
 	
 	this.toString = function(){
-		return "Fern (child): " + 
+		return "Fern (child - func): " + 
 		"name: " + this.getName() + 
 		", application: " + _application;
 	}	
@@ -62,27 +62,9 @@ function Spruce(name, description){
     }
     
     this.toString = function(){
-		return "Spruce (child): " + 
+		return "Spruce (child - func): " + 
 		"name: " + this.getName() + 
 		", class: " + _class;
 	}
     
-}
-
-function create(){
-	var name = document.getElementById("name").value
-	
-	plunt = new Plunt(`MyPlant: ${name}`)
-		.setDescription("PlantDescr"); 
-		
-	fern = new Fern(`MyFern: ${name}`)
-		.setDescription("FernDescr")
-		.setApplication("MyApplication");
-		
-	spruce = new Spruce(`MySpruce: ${name}`, "SpruceDescr")
-		.setClass("MyClass");
-	
-	[plunt,fern,spruce].forEach(element => 
-		console.log(element.toString() + ", json: " + JSON.stringify(element)));
-	
 }
