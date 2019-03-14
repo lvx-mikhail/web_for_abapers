@@ -17,6 +17,10 @@ try{
 				var body = $.request.body.asString();
 				var payload = JSON.parse(body);
 				
+				console.log("payload: " + payload);
+				
+				logger.addMessage(`do create body: ${body}`);
+				
 				$.response.contentType = "application/json";
 				$.response.setBody(JSON.stringify(logger));
 				$.response.status = $.net.http.OK;
@@ -26,8 +30,15 @@ try{
 				throw "create is only in POST";
 				
 			}
-	
-		break; 
+			break; 
+		
+		case "read":
+			var name = $.request.parameters.get('name');
+			$.response.contentType = "application/json";
+			logger.addMessage(`do get for ${name}`);
+			$.response.setBody(JSON.stringify(logger));
+			$.response.status = $.net.http.OK;
+			break;
 		
 		default:
 			throw "unknown command";
@@ -38,3 +49,4 @@ try{
     logger.addMessage(e)
     $.response.setBody(JSON.stringify(logger));
 }
+$.response.headers.set("Access-Control-Allow-Origin", "*");
