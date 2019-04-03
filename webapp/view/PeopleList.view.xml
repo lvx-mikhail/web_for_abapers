@@ -1,0 +1,132 @@
+<mvc:View
+	controllerName="zzz.controller.PeopleList"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+	<Panel
+		headerText="{i18n>helloPanelTitle}"
+		class="sapUiResponsiveMargin"
+		width="auto"
+		busy="{appView>/busy}">
+		
+		<content>
+		
+						<Button
+							id="resetChangesButton"
+							text="{i18n>resetChangesButtonText}"
+							enabled="{= !${appView>/hasUIChanges}}"
+							press="onResetDataSource"
+							type="Emphasized">
+						</Button>
+			
+			<Table
+							id="peopleList"
+							growing="true"
+							growingThreshold="10"
+							items="{
+								path: 'people>/People',
+								parameters: {
+									$$updateGroupId : 'peopleGroup'
+								}
+							}"
+							mode="SingleSelectLeft">
+							<headerToolbar>
+								<OverflowToolbar>
+									<content>
+										<ToolbarSpacer/>
+										<SearchField
+											id="searchField"
+											width="20%"
+											placeholder="{i18n>searchFieldPlaceholder}"
+											enabled="{= !${appView>/hasUIChanges}}"
+											search=".onSearch"/>
+											
+										<Button
+											id="addUserButton"
+											icon="sap-icon://add"
+											tooltip="{i18n>createButtonText}"
+											enabled="{= !${appView>/hasUIChanges}}"
+											press=".onCreate">
+											<layoutData>
+												<OverflowToolbarLayoutData priority="NeverOverflow"/>
+											</layoutData>
+										</Button>
+											
+										<Button
+											id="deleteUserButton"
+											icon="sap-icon://delete"
+											tooltip="{i18n>deleteButtonText}"
+											enabled="{= !${appView>/hasUIChanges}}"
+											press=".onDelete">
+											<layoutData>
+												<OverflowToolbarLayoutData priority="NeverOverflow"/>
+											</layoutData>
+										</Button>											
+											
+										<Button
+											id="refreshUsersButton"
+											icon="sap-icon://refresh"
+											tooltip="{i18n>refreshButtonText}"
+											press=".onRefresh"/>
+										<Button
+											id="sortUsersButton"
+											press="onSort"
+											tooltip="{i18n>sortButtonText}"
+											enabled="{= !${appView>/hasUIChanges}}"
+											icon="sap-icon://sort"/>
+									</content>
+								</OverflowToolbar>
+							</headerToolbar>
+							<columns>
+								<Column id="userNameColumn">
+									<Text text="{i18n>userNameLabelText}"/>
+								</Column>
+								<Column id="firstNameColumn">
+									<Text text="{i18n>firstNameLabelText}"/>
+								</Column>
+								<Column id="lastNameColumn">
+									<Text text="{i18n>lastNameLabelText}"/>
+								</Column>
+								<Column id="ageColumn">
+									<Text text="{i18n>ageLabelText}"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Input value="{people>UserName}"
+										valueLiveUpdate="true"
+										liveChange=".onInputChange"/>
+									</cells>
+									<cells>
+										<Input value="{people>FirstName}"/>
+									</cells>
+									<cells>
+										<Input value="{people>LastName}" liveChange=".onInputChange"/>
+									</cells>
+									<cells>
+										<Input value="{people>Age}"
+											valueLiveUpdate="true"
+											liveChange=".onInputChange"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+			
+				<Toolbar visible="{appView>/hasUIChanges}">
+							<ToolbarSpacer/>
+							<Button
+								id="saveButton"
+								type="Emphasized"
+								text="{i18n>saveButtonText}"
+								enabled="{= ${message>/}.length === 0 &amp;&amp; ${appView>/usernameEmpty} === false }"
+								press=".onSave"/>
+							<Button
+								id="doneButton"
+								text="{i18n>cancelButtonText}"
+								press=".onResetChanges"/>
+						</Toolbar>
+			
+		</content>
+		
+	</Panel>
+</mvc:View>
